@@ -9,6 +9,9 @@
     text-align:center;
     padding-top: 20px;
 }
+.card-columns{
+    margin:3em;
+}
 #main{
 
     margin: 0% 15% 20% 15%;
