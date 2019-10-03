@@ -15,11 +15,15 @@
 #main{
 
     margin: 0% 15% 20% 15%;
+    padding-top:50px;
+    text-indent:40px
    
 
     
 }
-
+#ben{
+    padding-top:50px;
+}
 #self{
 
     max-width:100%;
@@ -35,7 +39,5 @@
     width: 35%;
     border: 3px solid green;
     padding: 10px;
-    margin-top: 35px;
-    margin-bottom: 50px
-    
+    margin-top: 35px; 
 }
