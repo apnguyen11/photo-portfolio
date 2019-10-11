@@ -69,9 +69,11 @@
   /* Modal Content (Image) */
   .modal-content {
     margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 35%;
+    display: flex;
+    /* width: 80%; */
+    max-width: 30%;
+    position: absolute;
+    
   }
   
   /* Caption of Modal Image (Image Text) - Same Width as the Image */
