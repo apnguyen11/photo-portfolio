@@ -41,7 +41,7 @@
             </nav>
     </header>
 
-    <div class="card-columns">
+    <div id="mainCard"class="card-columns">
             
             <div class="card p-3 text-center">
               <img class="card-img-top img-fluid myImg1" src="images/David Bs Flip.jpg" alt="Card image cap">
@@ -246,14 +246,7 @@
                 <p class="card-text"><small class="text-muted">Houston, Texas <cite> (Downtown)</cite></small></p>
               </div>
             </div>
-            <div class="card p-3 text-center">
-                <div class="card-block">
-                <img class="card-img img-fluid" src="images/Roddie Smith.jpg" alt="Card image">
-                <h4 class="card-title">Frontside Smith</h4>
-                <p class="card-text">Roddie Froderick</p>
-                <p class="card-text"><small class="text-muted">San Fransisco, California</small></p>
-                </div>
-            </div>
+         
             <div class="card p-3 text-center">
               <div class="card-block">
               <img class="card-img img-fluid" src="images/Nathan Feeble.jpg" alt="Card image">
@@ -302,14 +295,7 @@
               <p class="card-text"><small class="text-muted">Sugarland, Texas <cite> (Smart Financial Centre)</cite></small></p>
               </div>
             </div>
-            <div class="card p-3 text-center">
-              <div class="card-block">
-              <img class="card-img img-fluid" src="images/Roddie Smith.jpg" alt="Card image">
-              <h4 class="card-title">Frontside Smith</h4>
-              <p class="card-text">Roddie Froderick</p>
-              <p class="card-text"><small class="text-muted">San Fransisco, California</small></p>
-              </div>
-          </div>
+           
             
             <div class="card p-3 text-center">
               <div class="card-block">
@@ -319,6 +305,14 @@
               <p class="card-text"><small class="text-muted">Houston, Texas <cite> (EZ-7)</cite></small></p>
               </div>
             </div>
+            <div class="card p-3 text-center">
+              <div class="card-block">
+              <img class="card-img img-fluid" src="images/Roddie Smith.jpg" alt="Card image">
+              <h4 class="card-title">Frontside Smith</h4>
+              <p class="card-text">Roddie Froderick</p>
+              <p class="card-text"><small class="text-muted">San Fransisco, California</small></p>
+              </div>
+          </div>
             <div class="card p-3 text-center">
               <div class="card-block">
               <img class="card-img img-fluid" src="images/David Fakie Flip.jpg" alt="Card image">
@@ -399,32 +393,72 @@
               <p class="card-text"><small class="text-muted">Houston, Texas <cite> </cite></small></p>
               </div>
             </div>
-          </div>
-          <div class="card p-3 text-center">
-            <div class="card-block">
-            <img class="card-img img-fluid" src="images/Slinky Hippie.jpg" alt="Card image">
-            <h4 class="card-title">Kyle Cielencki</h4>
-            <p class="card-text">Hippie Shuv-It</p>
-            <p class="card-text"><small class="text-muted">Austin, Texas <cite></cite></small></p>
+            <div class="card p-3 text-center">
+              <div class="card-block">
+              <img class="card-img img-fluid" src="images/Slinky Hippie.jpg" alt="Card image">
+              <h4 class="card-title">Kyle Cielencki</h4>
+              <p class="card-text">Hippie Shuv-It</p>
+              <p class="card-text"><small class="text-muted">Austin, Texas <cite></cite></small></p>
+              </div>
             </div>
           </div>
+          
           <script>
             // Get the modal
-            // var modal = document.getElementById("myModal");
+            var modal = document.getElementById("myModal");
             
-            // // Get the image and insert it inside the modal - use its "alt" text as a caption
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
 
             
-            // var img = document.getElementById("myImg");
-            // var modalImg = document.getElementById("img01");
-            // var captionText = document.getElementById("caption");
-            // img.onclick = function(){
-            //   modal.style.display = "block";
-            //   modalImg.src = this.src;
-            //   captionText.innerHTML = this.alt;
-            // }
+            var img = document.getElementById("myImg");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.onclick = function(){
+              modal.style.display = "block";
+              modalImg.src = this.src;
+              captionText.innerHTML = this.alt;
+            }
 
-            var modal = document.getElementById('myModal1');
+              // array = [{
+              //   modal:"id",
+              //   img: "img",
+              //   caption: 'text',
+              //   moadlImg: 'modalpic'
+
+
+              // }, modal:"id",
+              //   img: "img",
+              //   caption: 'text',
+              //   moadlImg: 'modalpic'
+
+
+              // },]
+
+              // for(var i =0; i < array.length; i++){
+
+                var modal = document.getElementById(modal1);
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img1 = $('.myImg1');
+            var modalImg1 = $("#img01");
+            var captionText = document.getElementById("caption");
+            img1.click(function(){
+                modal1.style.display = "block";
+                var newSrc = this.src;
+                modalImg1.attr('src', newSrc);
+            // });
+    
+            modal1.onclick = function(event) {
+              console.log(333)
+              if (event.target == modal1) {
+                console.log('clicked')
+              modal1.style.display = "none";
+              }
+            }
+
+              })
+
+              
+            var modal1 = document.getElementById('myModal1');
             // Get the image and insert it inside the modal - use its "alt" text as a caption
             var img1 = $('.myImg1');
             var modalImg1 = $("#img01");
@@ -435,28 +469,16 @@
                 modalImg1.attr('src', newSrc);
             });
     
-            window.onclick = function(event) {
-              if (event.target == modal) {
+            modal1.onclick = function(event) {
+              console.log(333)
+              if (event.target == modal1) {
+                console.log('clicked')
               modal1.style.display = "none";
               }
             }
 
-            var modal2 = document.getElementById('myModal2');
-            // Get the image and insert it inside the modal - use its "alt" text as a caption
-            var img2 = $('.myImg2');
-            var modalImg2 = $("#img02");
-            var captionText = document.getElementById("caption");
-            img2.click(function(){
-                modal2.style.display = "block";
-                var newSrc = this.src;
-                modalImg2.attr('src', newSrc);
-            });
-         
-            window.onclick = function(event) {
-              if (event.target == modal2) {
-              modal2.style.display = "none";
-              }
-            }
+            //make arrary with id of modals
+            // onclick event for each modal
                 
            
            
