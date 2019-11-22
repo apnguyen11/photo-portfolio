@@ -1,6 +1,7 @@
 
 
 const SkaterCard = (props) => {
+    console.log(props)
     return (
             <div className="card p-3 text-center">
                 <img className={props.cardClass} src={props.src} alt="Card image cap"/>
@@ -19,8 +20,8 @@ const SkaterCard = (props) => {
 const SkateModule = (props) => {
 
     return (
-        <div id={props.divId} class="modal" onClick={props.action}>
-            <img src={props.src} class="modal-content" id={moduleID}/>
+        <div id={props.divId} className="modal" onClick={props.action}>
+            <img src={props.src} className="modal-content" id={props.moduleID}/>
         </div>
     )
 }
@@ -28,6 +29,7 @@ class App extends React.Component{
     state = {
         skaters: [
             {
+                id: 1,
                 moduleID: "img01",
                 divId: "myModal1",
                 cardClass: "card-img-top img-fluid myImg1",
@@ -37,22 +39,24 @@ class App extends React.Component{
                 src: "images/David Bs Flip.jpg"
             },
             {
+                id: 2,
                 moduleID: "img02",
                 divId: "myModal2",
-                id: "card-img-top img-fluid myImg2",
+                cardClass: "card-img-top img-fluid myImg2",
                 name: "Jagger Eaton",
                 trick: "Blunt Slide",
                 location: " Dalls, Texas",
-                src: "images/David Bs Flip.jpg"
+                src: "images/Dallas blunt.jpg"
             },
             {
+                id: 3,
                 moduleID: "img03",
                 divId: "myModal3",
-                id: "card-img-top img-fluid myImg3",
+                cardClass: "card-img-top img-fluid myImg3",
                 name: "Roddie Froderick",
                 trick: "Frontside Smith",
                 location: "San Francisco, California",
-                src: "images/David Bs Flip.jpg"
+                src: "images/Roddie Smith.jpg"
             
             }
         ]
@@ -62,8 +66,10 @@ class App extends React.Component{
         console.log('photoclicked')
     }
     render(){
+       
+        const cards = this.state.skaters.map((obj) =>  <SkaterCard key={obj.id} cardClass={obj.cardClass} src={obj.src} name={obj.name} trick={obj.trick} location={obj.location} />)
         return(
-            <SkaterCard cardClass={this.state.skaters.cardClass}/>
+           cards 
         )
     }
 }
