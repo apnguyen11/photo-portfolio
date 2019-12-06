@@ -1,11 +1,14 @@
 
 
 const SkaterCard = (props) => {
-    console.log(props)
+    console.log(props.action)
+  
+
+        
     return (
             <div className="card p-3 text-center">
-                <img className={props.cardClass} src={props.src} alt="Card image cap"/>
-                <SkateModule action={props.action}/>
+                <img className={props.cardClass} src={props.src} alt="Card image cap" onClick={props.action}/>
+                <SkateModule />
                 <div className="card-block">
                     <h4 className="card-title">{props.name} </h4>
                     <p>{props.trick}</p>
@@ -18,10 +21,11 @@ const SkaterCard = (props) => {
 }
 
 const SkateModule = (props) => {
-
+   
+   
     return (
-        <div id={props.divId} className="modal" onClick={props.action}>
-            <img src={props.src} className="modal-content" id={props.moduleID}/>
+        <div id={props.divId} className="modal">
+         <img src={props.src} className="modal-content" id={props.moduleID}/>
         </div>
     )
 }
@@ -58,16 +62,54 @@ class App extends React.Component{
                 location: "San Francisco, California",
                 src: "images/Roddie Smith.jpg"
             
+            }, 
+            {
+                id:4,
+                moduleID: "img04",
+                divId: "myModal4",
+                cardClass: "card-img-top img-fluid myImg4",
+                name: "George Karvounis",
+                trick: "Fronstide Boardslide",
+                location: "San Francisco, California",
+                src: "images/George Fs Board.jpg"
+            },
+            {
+                id:5,
+                moduleID: "img05",
+                divId: "myModal5",
+                cardClass: "card-img-top img-fluid myImg5",
+                name: "Henry Gartland",
+                trick: "Nose Blunt",
+                location: "Downtown Houston (Underground Tunnels)",
+                src: "images/Henry Nose Blunt.jpg"
+            },
+            {
+                id:6,
+                moduleID: "img06",
+                divId: "myModal6",
+                cardClass: "card-img-top img-fluid myImg6",
+                name: "Roddie Frederick",
+                trick: "Ollie",
+                location: "San Francisco, California",
+                src: "images/Roddie Ollie.jpg"
             }
+           
+
         ]
     }
-    handleClick = () => {
-        const stateCopy = [...this.state]
-        console.log('photoclicked')
+    handleClick = (ev) => {
+        console.log('clicked')
+        // const stateCopy = [...this.state]
+        // console.log(ev.target.src)
+        // var test = document.getElementById(stateCopy.skaters[0].divId)
+        // test.style.display = "block";
+        // var newSrc = this.src;
+        // modalImg1.attr('src', newSrc);
+
     }
     render(){
        
-        const cards = this.state.skaters.map((obj) =>  <SkaterCard key={obj.id} cardClass={obj.cardClass} src={obj.src} name={obj.name} trick={obj.trick} location={obj.location} />)
+        const cards = this.state.skaters.map((obj) =>  <SkaterCard key={obj.id} cardClass={obj.cardClass} src={obj.src} name={obj.name} trick={obj.trick} location={obj.location} action={this.handleClick}/>)
         return(
            cards 
         )
